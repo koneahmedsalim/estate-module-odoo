@@ -5,3 +5,4 @@ class EstateTenantType(models.Model):
     _description = 'Type de Locataire'
 
     name = fields.Char(string='Type de Locataire', required=True)
+#f
