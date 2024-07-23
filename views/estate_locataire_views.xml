@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vue Form -->
+    <record id="view_estate_tenant_form" model="ir.ui.view">
+        <field name="name">estate.tenant.form</field>
+        <field name="model">estate_tenant</field>
+        <field name="arch" type="xml">
+            <form string="Estate Tenant">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="move_in_date"/>
+                        <field name="move_out_date"/>
+                        <field name="rent"/>
+                        <!-- Ajoutez d'autres champs de locataire ici -->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_estate_tenant_list" model="ir.ui.view">
+        <field name="name">estate.tenant.list</field>
+        <field name="model">estate_tenant</field>
+        <field name="arch" type="xml">
+            <tree string="Estate Tenant">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="move_in_date"/>
+                <field name="move_out_date"/>
+                <field name="rent"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_view_estate_tenant_list" model="ir.actions.act_window">
+        <field name="name">View Estate Tenant</field>
+        <field name="res_model">estate_tenant</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_estate_tenant_list"/>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_estate_tenant" name="Estate Tenant" />
+    <menuitem 
+        id="menu_estate_tenant_view" 
+        parent="menu_estate_property" 
+        name="Estate Tenant" 
+        action="action_view_estate_tenant_list"
+        sequence="6"/>
+
+</odoo>
